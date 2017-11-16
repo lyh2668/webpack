@@ -5,8 +5,11 @@
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#router}}
-import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/router}}
+{{#vuex}}
+import Store from  './store'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+{{/vuex}}
 
 Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
@@ -14,8 +17,11 @@ Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 new Vue({
   el: '#app',
   {{#router}}
-  router,
+  Router,
   {{/router}}
+  {{#vuex}}
+  Store,
+  {{/vuex}}
   {{#if_eq build "runtime"}}
   render: h => h(App){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   {{/if_eq}}
